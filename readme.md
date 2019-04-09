@@ -1,6 +1,6 @@
-# my-project
+# mpvue-WechartApp
 
-> A Mpvue project
+> 使用 Mpvue 构建的一款小程序
 
 ## Build Setup
 
