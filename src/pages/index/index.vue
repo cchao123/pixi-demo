@@ -1,56 +1,54 @@
 <template>
   <div class="wrapper">
+    <div class="header">
+      北欧奖赏
+    </div>
     <scroll-view
-      :style="{'height': '300px'}"
       :scroll-y="true"
       @scrolltolower="scrolltolower"
       @scroll="scroll"
     >
-      <div :style="{'height': '200px','background-color':'red'}">tyuiolpo</div>
-      <div class :style="{'height': '200px','background-color':'red'}">dsdsd</div>
-      <div class :style="{'height': '200px','background-color':'red'}">grytyju</div>
+      <img src="/static/images/1.jpg" >
+      <img src="/static/images/2.jpg" >
+      <img src="/static/images/3.jpg" >
+      <img src="/static/images/4.jpg" >
+      <img src="/static/images/5.jpg" >
+      <img src="/static/images/6.jpg" >
     </scroll-view>
-
-    <!-- <div class="wrapper_wrapper" @scroll="scroll">
-      <div class="aaa" @click="scroll"></div>
-      <div class="aaa"></div>
-      <div class="aaa"></div>
-      <div class="aaa"></div>
-    </div>-->
   </div>
 </template>
 
 <script>
-import card from "@/components/card";
+// import card from "@/components/card";
 
 export default {
-  data() {
-    return {};
+  data () {
+    return {}
   },
-  components: {
-    card
-  },
+  // components: {
+  //   card
+  // },
   methods: {
-    scroll() {
-      console.log(123);
+    scroll () {
+      console.log(123)
     },
-    bindViewTap() {
-      const url = "../logs/main";
-      if (mpvuePlatform === "wx") {
-        mpvue.switchTab({ url });
+    bindViewTap () {
+      const url = '../logs/main'
+      if (mpvuePlatform === 'wx') {
+        mpvue.switchTab({ url })
       } else {
-        mpvue.navigateTo({ url });
+        mpvue.navigateTo({ url })
       }
     },
-    clickHandle(ev) {
-      console.log("clickHandle:", ev);
+    clickHandle (ev) {
+      console.log('clickHandle:', ev)
       // throw {message: 'custom test'}
     }
   },
-  created() {
+  created () {
     // let app = getApp()
   }
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -58,19 +56,17 @@ export default {
 .wrapper {
   width: 100%;
   height: 100%;
-  .wrapper_wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: scroll;
-    .aaa {
-      width: 100%;
-      height: 500rpx;
-      background-image: url(//mat1.gtimg.com/bbs/qqnewslite/images/mt-bg.jpg);
-      background-size: cover;
-      background-position: 50% 50%;
-      margin-bottom: 20rpx;
-    }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+    height: 180rpx;
+    z-index: 999;
+  }
+  .item {
+    background-size: cover;
   }
 }
 </style>
