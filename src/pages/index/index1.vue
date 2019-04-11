@@ -2,7 +2,9 @@
   <div class="wrapper">
     <div class="top"></div>
     <div class="bottom">
-      <div class="head"></div>
+      <div class="head">
+        <img src="/static/images/6.jpg" >
+      </div>
       <div class="slogan">
         Hello Word
       </div>
@@ -64,8 +66,12 @@ export default {
       transform: translate3d(-50%, -50%, 0);
       width: 150rpx;
       height: 150rpx;
-      border-radius: 50%;
       background: pink;
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
     }
     .slogan {
       color: #fff;
