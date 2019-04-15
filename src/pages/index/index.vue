@@ -1,37 +1,42 @@
 <template>
   <div class="wrapper">
-    <div class="header">
-      北欧奖赏
+    <div class="top">
+    <view>
+      <Swiper :images="images" />
+    </view>
     </div>
-    <scroll-view
-      :scroll-y="true"
-      @scrolltolower="scrolltolower"
-      @scroll="scroll"
-    >
-      <img src="/static/images/1.jpg" >
-      <img src="/static/images/2.jpg" >
-      <img src="/static/images/3.jpg" >
-      <img src="/static/images/4.jpg" >
-      <img src="/static/images/5.jpg" >
-      <img src="/static/images/6.jpg" >
-    </scroll-view>
+    <div class="bottom">
+      <div class="head">
+        <img src="/static/images/logo.png" >
+      </div>
+      <div class="slogan">
+        Hello Word
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// import card from "@/components/card";
-
+import card from '@/components/card'
 export default {
   data () {
-    return {}
+    return {
+      images: [
+        {
+          url:
+            '/static/images/logo.png'
+        },
+        {
+          url:
+            '/static/images/logo.png'
+        }
+      ]
+    }
   },
-  // components: {
-  //   card
-  // },
+  components: {
+    card
+  },
   methods: {
-    scroll () {
-      console.log(123)
-    },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {
@@ -55,18 +60,34 @@ export default {
 /* @import '../../statics/css/global.scss'; */
 .wrapper {
   width: 100%;
-  height: 100%;
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, .5);
-    width: 100%;
-    height: 180rpx;
-    z-index: 999;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .top {
+    flex: 1;
+    background: #546471;
   }
-  .item {
-    background-size: cover;
+  .bottom {
+    text-align: center;
+    height: 350rpx;
+    background: #ccc;
+    position: relative;
+    .head {
+      position: absolute;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 150rpx;
+      height: 150rpx;
+      img {
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .slogan {
+      color: #fff;
+      margin-top: 80rpx;
+    }
   }
 }
 </style>
