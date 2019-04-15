@@ -78,6 +78,10 @@ export default {
       transform: translate3d(-50%, -50%, 0);
       width: 150rpx;
       height: 150rpx;
+<<<<<<< HEAD
+=======
+      background: pink;
+>>>>>>> 7c29cfd79d71318b8defaee174432d2a4a6aac0a
       img {
         border-radius: 50%;
         width: 100%;
