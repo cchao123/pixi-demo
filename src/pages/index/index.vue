@@ -11,6 +11,7 @@
         class="aaa"
         :style="{'backgroundImage': 'url(/static/images/'+ (item + 1)  +'.jpg)','background-position-y': yRpx + 'rpx'}">
         <!-- {{ yRpx }} -->
+        <span>HD</span>
       </div>
     </scroll-view>
   </div>
@@ -74,9 +75,20 @@ export default {
 
   }
   .aaa {
+    position: relative;
     background-size: cover;
     width:100%;
     height:480rpx;
+    span {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%, 0);
+      font-size: 30rpx;
+      color: #fff;
+      padding: 5rpx 10rpx;
+      background: rgba($color: #000000, $alpha: 0.3);
+    }
   }
 }
 </style>
