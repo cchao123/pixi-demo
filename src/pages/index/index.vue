@@ -1,42 +1,41 @@
 <template>
   <div class="wrapper">
-    <div class="top">
-    <view>
-      <Swiper :images="images" />
-    </view>
-    </div>
-    <div class="bottom">
-      <div class="head">
-        <img src="/static/images/logo.png" >
+    <!-- <div class="header"></div> -->
+    <scroll-view
+      :style="{'height': '100vh'}"
+      :scroll-y="true"
+      @scrolltolower="scrolltolower"
+      @scroll="scroll"
+    >
+      <div  v-for="item in 6" :key="item"
+        class="aaa"
+        :style="{'backgroundImage': 'url(/static/images/'+ (item + 1)  +'.jpg)','background-position-y': yRpx + 'rpx'}">
+        <!-- {{ yRpx }} -->
       </div>
-      <div class="slogan">
-        Hello Word
-      </div>
-    </div>
+    </scroll-view>
   </div>
 </template>
 
 <script>
-import card from '@/components/card'
+// import card from "@/components/card";
+
 export default {
   data () {
     return {
-      images: [
-        {
-          url:
-            '/static/images/logo.png'
-        },
-        {
-          url:
-            '/static/images/logo.png'
-        }
-      ]
+      yRpx: 0
     }
   },
-  components: {
-    card
-  },
+  // components: {
+  //   card
+  // },
   methods: {
+    scroll (e) {
+      if (e.target.deltaY > 0) {
+        if (this.yRpx < 0) this.yRpx = this.yRpx + 5
+      } else {
+        if (this.yRpx > -45) this.yRpx = this.yRpx - 5
+      }
+    },
     bindViewTap () {
       const url = '../logs/main'
       if (mpvuePlatform === 'wx') {
@@ -60,34 +59,24 @@ export default {
 /* @import '../../statics/css/global.scss'; */
 .wrapper {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  .top {
-    flex: 1;
-    background: #546471;
+  height: 100%;
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, .5);
+    width: 100%;
+    height: 180rpx;
+    z-index: 999;
   }
-  .bottom {
-    text-align: center;
-    height: 350rpx;
-    background: #ccc;
-    position: relative;
-    .head {
-      position: absolute;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      width: 150rpx;
-      height: 150rpx;
-      img {
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-      }
-    }
-    .slogan {
-      color: #fff;
-      margin-top: 80rpx;
-    }
+  .item {
+    background-size: cover;
+
+  }
+  .aaa {
+    background-size: cover;
+    width:100%;
+    height:480rpx;
   }
 }
 </style>
