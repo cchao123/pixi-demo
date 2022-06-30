@@ -1,50 +1,64 @@
-<script>
-export default {
-  created () {
-    // 调用API从本地缓存中获取数据
-    /*
-     * 平台 api 差异的处理方式:  api 方法统一挂载到 mpvue 名称空间, 平台判断通过 mpvuePlatform 特征字符串
-     * 微信：mpvue === wx, mpvuePlatform === 'wx'
-     * 头条：mpvue === tt, mpvuePlatform === 'tt'
-     * 百度：mpvue === swan, mpvuePlatform === 'swan'
-     * 支付宝(蚂蚁)：mpvue === my, mpvuePlatform === 'my'
-     */
+<template>
+  <router-view />
+</template>
+<script lang="ts">
+import { defineComponent, onMounted, ref, computed, watch } from 'vue';
 
-    let logs
-    if (mpvuePlatform === 'my') {
-      logs = mpvue.getStorageSync({key: 'logs'}).data || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync({
-        key: 'logs',
-        data: logs
-      })
-    } else {
-      logs = mpvue.getStorageSync('logs') || []
-      logs.unshift(Date.now())
-      mpvue.setStorageSync('logs', logs)
-    }
+export default defineComponent({
+  setup() {
+    return {
+    };
   },
-  log () {
-    console.log(`log at:${Date.now()}`)
-  }
-}
+});
 </script>
-
-<style>
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+<style lang="postcss">
+html.borderbox *,
+html.borderbox *:before,
+html.borderbox *:after {
   box-sizing: border-box;
 }
-/* this rule will be remove */
-* {
-  transition: width 2s;
-  -moz-transition: width 2s;
-  -webkit-transition: width 2s;
-  -o-transition: width 2s;
+
+body {
+  font-family: -apple-system-font, 'PingFang SC', 'Hiragino Sans GB', 'Heiti SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 26px;
+  font-weight: 200;
+  color: #41414e;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body * {
+  user-select: none;
+}
+
+body input,
+body textarea {
+  user-select: text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+p,
+h3,
+h4,
+dd,
+dt {
+  margin: 0;
+}
+
+.menu {
 }
 </style>

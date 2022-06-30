@@ -1,11 +1,37 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en" class="borderbox">
   <head>
-    <meta charset="utf-8">
-    <title>my-project</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Demo</title>
+    <style>
+      .pageLoading {
+       display: none;
+       position: fixed;
+       left: 0;
+       top: 0;
+       right: 0;
+       bottom: 0;
+       background-size:  cover;
+     }
+   </style>
   </head>
   <body>
     <div id="app"></div>
-    <!-- built files will be auto injected -->
+    <div class="pageLoading"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
+<script>
+  const scale = window.innerWidth / 750;
+  const metaEl = document.createElement('meta');
+  metaEl.setAttribute('name', 'viewport');
+  metaEl.setAttribute(
+    'content',
+    `width=device-width,initial-scale=${scale},maximum-scale=${scale},minimum-scale=${scale}, user-scalable=no`,
+  );
+  const firstElementChildEl = document.documentElement.firstElementChild;
+  firstElementChildEl?.appendChild(metaEl);
+  document.querySelector('.pageLoading').style = 'display: block';
+</script>
