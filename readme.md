@@ -1,8 +1,3 @@
----
-theme: juejin
-highlight: a11y-light
----
-
 > 草稿箱躺了一年的文章：记录初次使用PIXI实践探索、可应用场景和搭配第三方库的玩法；
 
 #### 技术选型：Pixi + GSAP、 扫下方二维码或点击[体验地址。](https://new.qq.com/qqfile/tnewsh5/short-term/centralAxis_pre.html#/)
